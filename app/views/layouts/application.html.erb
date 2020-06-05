@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shares</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
+  <%= render 'layouts/head' %>
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <nav aria-label="breadcrumb" style="margin-top: 65px">
+      <ol class="breadcrumb bg-light">
+        <li class="breadcrumb-item active" aria-current="page">
+          <%= yield(:title) %>
+        </li>
+      </ol>
+    </nav>
+    <%= render 'layouts/flash' %>
+    <div class="container" id="main-container">
+      <%= yield %>
+    </div>
+    <footer class="footer bg-light">
+      <p style="width: 50%; padding: 10px">
+        Copyright © 2020 Shares. All rights reserved.
+      </p>
+    </footer>
   </body>
 </html>
