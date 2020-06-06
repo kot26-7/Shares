@@ -20,11 +20,21 @@ body{
 	min-height: 100vh;
 }
 
+.flash-zone{
+	margin-block-end: auto;
+}
+
 header{
 	width:100%;
   position:fixed;
   top:0;
   z-index:10;
+}
+
+.breadcrumb{
+	margin-top: 65px;
+	margin-bottom:0;
+	height: 50px;
 }
 
 footer{
@@ -53,4 +63,18 @@ footer{
 	width:70%;
 	margin:0px auto;
 	display:block;
+}
+
+.control{
+	position:relative;
+
+	.form-awesome{
+		padding-left:35px;
+	}
+
+	.icon{
+		position:absolute;
+		top:6px;
+		left:10px;
+	}
 }
