@@ -1,3 +1,41 @@
 <% provide(:title, "Home") %>
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+
+<% if user_signed_in? %>
+	<h1>top</h1>
+<% else %>
+
+<div class="col-12 col-sm-8 col-md-6" style="margin: 20px auto">
+  <div class="shadow p-3 bg-white rounded">
+  	<h1 class="title is-2" style="text-align: center">Let's start!</h1>
+  	<%= link_to new_user_session_path do %>
+			<div class="btn btn-success", id="submit-btn" style="margin-top: 15px">
+				<p style="margin: 0">Login Here</p>
+			</div>
+		<% end %>
+
+  	<%= link_to new_user_registration_path do %>
+			<div class="btn btn-primary", id="submit-btn" style="margin-top: 15px">
+				<p  style="margin: 0">Sign up Here</p>
+			</div>
+		<% end %>
+
+	  <%= link_to user_facebook_omniauth_authorize_path do %>
+	    <div class="btn btn-info" id="submit-btn" style="margin-top: 15px">
+	      <span class="omni-btn">
+	        <i class="fab fa-facebook fa-2x"></i>
+	      </span>
+	      <p class="omni-msg">Log in with Facebook</p>
+	    </div>
+	  <% end %>
+
+		<%= link_to user_twitter_omniauth_authorize_path do %>
+	    <div class="btn btn-primary" id="submit-btn" style="margin-top: 15px">
+	      <span class="omni-btn">
+	        <i class="fab fa-twitter fa-2x"></i>
+	      </span>
+	      <p class="omni-msg">Log in with Twitter</p>
+	    </div>
+	  <% end %>
+  </div>
+</div>
+<% end %>

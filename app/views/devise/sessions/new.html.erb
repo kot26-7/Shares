@@ -1,6 +1,6 @@
 <% provide(:title, "Login") %>
 
-<div class="form-column">
+<div class="form-column col-12 col-sm-12 col-md-12">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -30,7 +30,7 @@
         <%= f.label :remember_me %>
       </div>
     <% end %>
-    <%= f.submit "Log in", class: "btn btn-primary", id: "submit-btn" %>
+    <p><%= f.submit "Log in", class: "btn btn-primary", id: "submit-btn" %></p>
   <% end %>
   <%= render "devise/shared/links" %>
 </div>

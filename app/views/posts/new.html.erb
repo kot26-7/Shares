@@ -1,7 +1,7 @@
 <% provide(:title, "Post New") %>
 
 <% if @post.errors.any? %>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger col-12 col-sm-12 col-md-12">
     <ul>
       <% @post.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<div class="form-column">
+<div class="form-column col-12 col-sm-12 col-md-12">
   <%= form_for @post do |f| %>
     <div class="form-group">
       <%= f.label :post_image, "Photo" %>

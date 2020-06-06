@@ -13,7 +13,7 @@
  */
 @import "bootstrap";
 
-/* start here */
+/* main */
 a:hover{
   text-decoration: none;
 }
@@ -47,7 +47,6 @@ footer{
   width:100%;
 }
 
-
 #shares-title{
 	font-family: "Times New Roman", Times, serif;
 	font-size:26px;
@@ -80,7 +79,17 @@ footer{
 	}
 }
 
-/* edit-page */
+.omni-btn{
+	float:left;
+	padding:3px 0px 0px 7px;
+}
+
+.omni-msg{
+	padding:10px 0px;
+	margin:0;
+}
+
+/* user-edit-page */
 .edit-field{
   border-bottom:thin solid black;
   margin-bottom:20px;
@@ -91,6 +100,21 @@ footer{
   }
 }
 
+.form-check{
+	position:relative;
+	height:50px;
+	p{
+		font-size:15px;
+		position:absolute;
+		left:10px;
+	}
+	.form-check-input{
+		position:absolute;
+		top:20px;
+		left:40px;
+	}
+}
+
 .danger-msg{
   color:red;
   &:hover{
@@ -98,14 +122,12 @@ footer{
   }
 }
 
-.form-check-inline{
-	padding-left:30px;
-}
-
+/* user-show */
 .prof-img{
 	width:100px;
 }
 
+/* user-index */
 .prof-img-index{
 	width:150px;
 }
@@ -151,3 +173,4 @@ footer{
 .post-icons{
 	margin-left:30px;
 }
+

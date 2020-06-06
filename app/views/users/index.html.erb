@@ -1,21 +1,19 @@
 <% provide(:title, "Users") %>
 
-<div>
+<div class=" col-12 col-sm-12 col-md-12">
   <% @users.each do |user| %>
-    <div>
-      <div class="card" style="width: 150px">
-        <figure class="card-img-top">
-          <%= link_to user_path(user) do %>
-            <%= image_tag user.profile_image.to_s, class: "prof-img-index" %>
-          <% end %>
-        </figure>
-        <div class="card-content">
-          <div class="card-title">
-            <%=link_to user.username, user_path(user), id: "index-uname" %>
-          </div>
-          <div class="card-text" id="index-psts">
-            Posts : <%= user.posts.count %>
-          </div>
+    <div class="card" style="width: 150px">
+      <figure class="card-img-top">
+        <%= link_to user_path(user) do %>
+          <%= image_tag user.profile_image.to_s, class: "prof-img-index" %>
+        <% end %>
+      </figure>
+      <div class="card-content">
+        <div class="card-title">
+          <%=link_to user.username, user_path(user), id: "index-uname" %>
+        </div>
+        <div class="card-text" id="index-psts">
+          Posts : <%= user.posts.count %>
         </div>
       </div>
     </div>

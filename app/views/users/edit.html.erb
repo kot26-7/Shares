@@ -1,17 +1,17 @@
 <% provide(:title, "Edit Profile") %>
 
 <% if @user.errors.any? %>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger col-12 col-sm-12 col-md-12">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
     <ul>
       <% @user.errors.full_messages.each do |message| %>
       <li><%= message %></li>
       <% end %>
-    </ul>
+    </ul> 
   </div>
 <% end %>
 
-<div class="form-column">
+<div class="form-column  col-12 col-sm-12 col-md-12">
   <%= form_for @user do |f| %>
     <div class="edit-field"><h1 class="edit-title">Required</h1></div>
     <div class="form-group">
@@ -42,21 +42,23 @@
 
     <div class="form-group">
       <h6>Gender</h6>
-      <div class="form-check form-check-inline">
-        <%= f.radio_button :gender, "male", class: 'form-check-input' %>
-        <%= f.label :gender, "Male", class: 'form-check-label' %>
-      </div>
-      <div class="form-check form-check-inline">
-        <%= f.radio_button :gender, "female", class: 'form-check-input' %>
-        <%= f.label :gender, "Female", class: 'form-check-label' %>
-      </div>
-      <div class="form-check form-check-inline">
-        <%= f.radio_button :gender, "other", class: 'form-check-input' %>
-        <%= f.label :gender, "Other", class: 'form-check-label' %>
-      </div>
-      <div class="form-check form-check-inline">
-        <%= f.radio_button :gender, "", class: 'form-check-input' %>
-        <%= f.label :gender, "No answer", class: 'form-check-label' %>
+      <div style="display: flex;">
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "Male", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "male", class: 'form-check-input' %>
+        </div>
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "Female", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "female", class: 'form-check-input' %>
+        </div>
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "Other", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "other", class: 'form-check-input' %>
+        </div>
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "No answer", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "", class: 'form-check-input' %>
+        </div>
       </div>
     </div>
 
@@ -74,7 +76,7 @@
   <% end %>
 </div>
 
-<div class="form-column" style="padding-top: 60px">
+<div class="form-column col-12 col-sm-12 col-md-12" style="padding-top: 60px">
   <%= link_to "Change your password", edit_user_registration_path %></br>
   <% if @user.id == current_user.id %>
     <%= link_to "Delete account", @user, method: :delete, data: { confirm: "You sure?" }, class: "danger-msg" %>
