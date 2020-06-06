@@ -1,0 +1,11 @@
+<div class="post-icons">
+  <span class="icon is-small"><i class="fas fa-heart"></i></span>
+  <% if @post.user.id == current_user.id %>
+    <%= link_to edit_post_path(@post) do %>
+      <i class="fas fa-edit" style="color: green"></i>
+    <% end %>
+    <%= link_to post_path(@post),method: :delete,data: { confirm: "Delete this post?" } do %>
+      <i class="fas fa-trash-alt" style="color: crimson"></i>
+    <% end %>
+  <% end %>
+</div>

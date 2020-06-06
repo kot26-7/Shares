@@ -13,7 +13,9 @@
           <div class="card-title">
             <%=link_to user.username, user_path(user), id: "index-uname" %>
           </div>
-          <div class="card-text" id="index-psts">Posts :</div>
+          <div class="card-text" id="index-psts">
+            Posts : <%= user.posts.count %>
+          </div>
         </div>
       </div>
     </div>

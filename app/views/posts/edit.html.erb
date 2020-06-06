@@ -1,0 +1,21 @@
+<% provide(:title, "Edit Post") %>
+
+<% if @post.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="form-column">
+  <%= form_for @post do |f| %>
+    <div class="form-group">
+      <%= f.label :post_image, "Image" %>
+      <%= f.file_field :post_image, class: "form-control" %>
+    </div>
+    <%= f.submit 'Update', class: "btn btn-primary", id: "submit-btn" %>
+  <% end %>
+</div>

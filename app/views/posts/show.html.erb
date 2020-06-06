@@ -1,0 +1,12 @@
+<% provide(:title, "#{@post.user.username}'s post") %>
+
+<div class="media w-75 p-3 shadow-lg p-3 mb-5 bg-white rounded" style="margin: 0 auto">
+  <%= link_to user_path(@post.user) do %>
+    <%= image_tag @post.user.profile_image.to_s, class: "prof-img" %>
+  <% end %>
+  <div class="media-body">
+    <h5 style="padding-left: 10px "><%= @post.user.username %></h5>
+    <%= image_tag @post.post_image.to_s, id: "post-show-img" %></br>
+    <%= render 'posts/icons' %>
+  </div>
+</div>

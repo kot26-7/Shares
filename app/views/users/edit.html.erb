@@ -76,7 +76,7 @@
 
 <div class="form-column" style="padding-top: 60px">
   <%= link_to "Change your password", edit_user_registration_path %></br>
-  <% if current_user %>
+  <% if @user.id == current_user.id %>
     <%= link_to "Delete account", @user, method: :delete, data: { confirm: "You sure?" }, class: "danger-msg" %>
   <% end %>
 </div>
