@@ -1,0 +1,62 @@
+<% provide(:title, @user.username) %>
+
+<div class="w-75 p-3" style="margin: 0 auto">
+  <div class="prof-img-name">
+    <figure class="rounded float-left"  style="margin-left: auto; margin-right: auto;">
+    	<%= image_tag @user.profile_image.to_s, class: "prof-img" %>
+    </figure>
+    <h2 style="margin: 15px; display: inline-block;">
+      <%= @user.username %>
+    </h2>
+  </div>
+  <div class="column is-8">
+    <table class="table is-fullwidth">
+      <tr>
+        <% if @user.id == current_user.id %>
+        <td class="is-size-4">
+          <%= @user.email %>
+        </td>
+        <td>
+            <%= link_to "Edit", edit_user_path(@user), class: "button is-primary" %>
+        </td>
+        <% end %>
+      </tr>
+    </table>
+    <table class="table is-fullwidth">
+      <tr>
+        <td>
+          <%= @user.introduce %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div style="margin: 0px auto">
+    <h1 style="font-size: 30px; margin-bottom: 20px; border-bottom: medium solid black">
+      Additional Profile
+    </h1>
+
+    <div class="row row-cols-2">
+      <h3 class="col-4 font-weight-normal">Fullname:</h3>
+      <h5 class="font-weight-light col-8 sub-title"><%= @user.fullname %></h5>
+    </div></br>
+
+    <div class="row row-cols-2">
+      <h3 class="col-4 font-weight-normal">Website:</h3>
+      <h5 class="font-weight-light col-8 sub-title"><%= @user.website %></h5>
+    </div></br>
+
+    <% if @user.id == current_user.id %>
+      <div class="row row-cols-2">
+        <h3 class="col-4 font-weight-normal">Phonenumber:</h3>
+        <h5 class="font-weight-light col-8 sub-title"><%= @user.phonenumber %></h5>
+      </div></br>
+
+      <div class="row row-cols-2">
+        <h3 class="col-4 font-weight-normal">Gender:</h3>
+        <h5 class="font-weight-light col-8 sub-title"><%= @user.gender %></h5>
+      </div>
+    <% end %>
+  </div>
+</div>

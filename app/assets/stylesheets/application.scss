@@ -13,6 +13,7 @@
  */
 @import "bootstrap";
 
+/* start here */
 body{
 	display: flex;
 	width:100%;
@@ -67,14 +68,54 @@ footer{
 
 .control{
 	position:relative;
-
 	.form-awesome{
 		padding-left:35px;
 	}
-
 	.icon{
 		position:absolute;
 		top:6px;
 		left:10px;
 	}
+}
+
+/* edit-page */
+.edit-field{
+  border-bottom:thin solid black;
+  margin-bottom:20px;
+  padding-top:20px;
+  .edit-title{
+    font-size:25px;
+    font-weight:bold;
+  }
+}
+
+.danger-msg{
+  color:red;
+  &:hover{
+    color:black;
+  }
+}
+
+.form-check-inline{
+	padding-left:30px;
+}
+
+.prof-img{
+	width:100px;
+}
+
+.prof-img-index{
+	width:150px;
+}
+
+.sub-title{
+	line-height:41px;
+}
+
+#index-uname{
+	color:black;
+	margin-left:10px;
+}
+#index-psts{
+	margin: 0px 0px 10px 10px;
 }
