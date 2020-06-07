@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   before_save { self.email = email.downcase }
   mount_uploader :profile_image, ProfileImageUploader
   validates :username, presence: true, length: { maximum: 50 }
@@ -25,5 +26,9 @@ class User < ApplicationRecord
       user.image = auth.info.image.gsub("_normal","") if user.provider == "twitter"
       user.image = auth.info.image.gsub("picture","picture?type=large") if user.provider == "facebook"
     end
+  end
+
+  def already_fav?(post)
+    self.favorites.exists?(post_id: post.id)
   end
 end

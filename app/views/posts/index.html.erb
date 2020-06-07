@@ -1,13 +1,13 @@
 <% provide(:title, "All Posts") %>
 
-<div class="  col-9 col-sm-9 col-md-9" style="margin: 0px auto">
-  <h1 style="font-size: 30px; margin-bottom: 20px; border-bottom: medium solid black">
+<div class="col-12 col-sm-9 col-md-9" style="margin: 0px auto">
+  <h1 style="font-size: 30px; margin-bottom: 20px; border-bottom: medium solid black" >
     All Posts
   </h1>
-  <div id="post-index">
+  <div class="row col-12 col-sm-12 col-md-12" id="post-index">
     <% @posts.each do |post| %>
       <%= link_to post_path(post),class: "col-4 col-sm-4 col-md-4", id: "post-index-img" do %>
-        <%= image_tag post.post_image.to_s %>
+        <%= image_tag post.post_image.to_s,class: "col-12 col-sm-12 col-md-12" %>
       <% end %>
     <% end %>
   </div>

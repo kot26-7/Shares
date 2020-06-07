@@ -5,8 +5,12 @@
     <%= image_tag @post.user.profile_image.to_s, class: "prof-img" %>
   <% end %>
   <div class="media-body">
-    <h5 style="padding-left: 10px "><%= @post.user.username %></h5>
-    <%= image_tag @post.post_image.to_s, id: "post-show-img" %></br>
+    <h5 style="padding-left: 10px ">
+    	<%= @post.user.username %>
+			<i class="far fa-heart" style="padding-left: 15px"></i>
+			<%= @post.favorites.count %>
+    </h5>
+    <%= image_tag @post.post_image.to_s, class: "col-10 col-sm-8 col-md-8", id: "post-show-img" %></br>
     <%= render 'posts/icons' %>
   </div>
 </div>

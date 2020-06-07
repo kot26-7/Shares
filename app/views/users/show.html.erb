@@ -1,6 +1,6 @@
 <% provide(:title, @user.username) %>
 
-<div class=" col-9 col-sm-9 col-md-9" style="margin: 0 auto">
+<div class="col-12 col-sm-9 col-md-9" style="margin: 0 auto">
   <div class="prof-img-name">
     <figure class="rounded float-left"  style="margin-left: auto; margin-right: auto;">
     	<%= image_tag @user.profile_image.to_s, class: "prof-img" %>
@@ -37,26 +37,39 @@
       Additional Profile
     </h1>
 
-    <div class="row row-cols-2">
+    <div class="row row-cols-2" style="margin-bottom: 15px">
       <h3 class="col-4 font-weight-normal">Fullname:</h3>
       <h5 class="font-weight-light col-8 sub-title"><%= @user.fullname %></h5>
-    </div></br>
+    </div>
 
-    <div class="row row-cols-2">
+    <div class="row row-cols-2" style="margin-bottom: 15px">
       <h3 class="col-4 font-weight-normal">Website:</h3>
       <h5 class="font-weight-light col-8 sub-title"><%= @user.website %></h5>
-    </div></br>
+    </div>
 
     <% if @user.id == current_user.id %>
-      <div class="row row-cols-2">
+      <div class="row row-cols-2" style="margin-bottom: 15px">
         <h3 class="col-4 font-weight-normal">Phonenumber:</h3>
         <h5 class="font-weight-light col-8 sub-title"><%= @user.phonenumber %></h5>
-      </div></br>
+      </div>
 
-      <div class="row row-cols-2">
+      <div class="row row-cols-2" style="margin-bottom: 30px">
         <h3 class="col-4 font-weight-normal">Gender:</h3>
         <h5 class="font-weight-light col-8 sub-title"><%= @user.gender %></h5>
       </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="col-12 col-sm-9 col-md-9" style="margin: 0px auto">
+  <h1 style="font-size: 30px; margin-bottom: 20px; border-bottom: medium solid black">
+    Your Posts : <%= @user.posts.count %>
+  </h1>
+  <div class="row col-12 col-sm-12 col-md-12" id="post-index">
+    <% @user.posts.each do |post| %>
+      <%= link_to post_path(post),class: "col-4 col-sm-4 col-md-4", id: "post-index-img" do %>
+        <%= image_tag post.post_image.to_s,class: "col-12 col-sm-12 col-md-12" %>
+      <% end %>
     <% end %>
   </div>
 </div>

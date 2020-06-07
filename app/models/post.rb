@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   mount_uploader :post_image, PostImageUploader
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
