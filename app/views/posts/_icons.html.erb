@@ -1,13 +1,9 @@
-<div class="post-icons">
+<div class="post-icons" id="icons">
 	<% if @post.user.id != current_user.id %>
 		<% if current_user.already_fav?(@post) %>
-			<%= link_to post_favorite_path(post_id: @post), method: :delete do %>
-  			<h5><i class="fas fa-heart" style="color: pink"></i></h5>
-  		<% end %>
+			<%= render 'posts/unfavorite' %>
   	<% else %>
-  		<%= link_to post_favorites_path(post_id: @post), method: :post do %>
-  			<h5><i class="far fa-heart" style="color: pink"></i></h5>
-  		<% end %>
+  		<%= render 'posts/favorite' %>
   	<% end %>
   <% else %>
     <%= link_to edit_post_path(@post) do %>

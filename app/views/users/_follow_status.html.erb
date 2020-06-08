@@ -1,0 +1,10 @@
+<div style="margin-bottom: 5px">
+  <a href="<%= following_user_path(@user) %>" style="color: black">
+    <strong id="following"><%= @user.following.count %></strong>
+    Following
+  </a>
+  <a href="<%= followers_user_path(@user) %>" style="margin-left: 5px; color: black">
+    <strong id="followers"><%= @user.followers.count %></strong>
+    Followers
+  </a>
+</div>

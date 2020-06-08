@@ -31,6 +31,20 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.all
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @user  = User.find(params[:id])
+    @users = @user.followers.all
+    render 'show_follow'
+  end
+
   private
     def user_params
       params.require(:user).permit(:username, :email,:fullname,:phonenumber, :gender, :introduce, :website, :profile_image)

@@ -5,9 +5,11 @@
     <figure class="rounded float-left"  style="margin-left: auto; margin-right: auto;">
     	<%= image_tag @user.profile_image.to_s, class: "prof-img" %>
     </figure>
-    <h2 style="margin: 15px; display: inline-block;">
-      <%= @user.username %>
-    </h2>
+    <div id="user-status">
+      <h3><%= @user.username %></h3>
+      <%= render 'follow_status' %>
+      <%= render 'follow_form' %>
+    </div>
   </div>
   <div class="column is-8">
     <table class="table is-fullwidth">
@@ -15,6 +17,7 @@
         <% if @user.id == current_user.id %>
         <td class="is-size-4">
           <%= @user.email %>
+          <% @user ||= current_user %>
         </td>
         <td>
             <%= link_to "Edit", edit_user_path(@user), class: "button is-primary" %>
