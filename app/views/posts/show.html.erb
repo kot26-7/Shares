@@ -1,16 +1,39 @@
 <% provide(:title, "#{@post.user.username}'s post") %>
 
-<div class="media col-9 col-sm-9 col-md-9 shadow-lg p-3 mb-5 bg-white rounded" style="margin: 0 auto">
-  <%= link_to user_path(@post.user) do %>
-    <%= image_tag @post.user.profile_image.to_s, class: "prof-img" %>
+<div class="media row col-12 col-sm-9 col-md-9 shadow-lg p-3 mb-5 bg-white rounded" style="margin: 0 auto">
+  <%= link_to user_path(@post.user), class: "col-2 col-sm-2 col-md-2", id: "mar-pad-zero" do %>
+    <%= image_tag @post.user.profile_image.to_s, class: "col-12 col-sm-12 col-md-12", id: "mar-pad-zero" %>
   <% end %>
-  <div class="media-body">
+  <div class="media-body col-10 col-sm-10 col-md-10">
     <h5 style="padding-left: 10px ">
     	<%= @post.user.username %>
 			<i class="far fa-heart" style="padding-left: 15px"></i>
 			<%= @post.favorites.count %>
     </h5>
-    <%= image_tag @post.post_image.to_s, class: "col-10 col-sm-8 col-md-8", id: "post-show-img" %></br>
+    <%= image_tag @post.post_image.to_s, class: "col-12 col-sm-8 col-md-8", id: "post-show-img" %></br>
     <%= render 'posts/icons' %>
+
+    <% if @post.user.id != current_user.id%>
+      <div style="margin-top: 40px">
+        <h2>Comments</h2>
+        <ul class="list-unstyled">
+          <% @comments.each do |c| %>
+            <li class="media row" style="padding: 0 15px; margin-bottom: 10px">
+              <%= link_to user_path(@post.user), class: "col-2 col-sm-2 col-md-1", id: "mar-pad-zero" do %>
+                <%= image_tag @post.user.profile_image.to_s, class: "col-12 col-sm-12 col-md-12", id: "mar-pad-zero" %>
+              <% end %>
+              <div class="media-body col-10 col-sm-10 col-md-11" style="padding: 0 5px">
+                <h5><%= link_to c.user.username, user_path(c.user) %></h5>
+                <p style="padding-left: 5px"><%= c.content %></p>
+              </div>
+            </li>
+          <% end %>
+          <%= form_for [@post, @comment] do |f| %>
+            <%= f.text_field :content %>
+            <%= f.submit 'Comment' %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
