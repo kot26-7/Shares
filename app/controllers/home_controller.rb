@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   	if user_signed_in?
   		user = current_user
       @users = user.following.order("created_at DESC")
+      @comment = Comment.new
   	end
   end
 

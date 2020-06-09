@@ -6,9 +6,10 @@
 		  <% @posts = Post.where(user_id: user.id).order("created_at DESC") %>
 		  <% @posts.each do |post| %>
 		  	<div class="col-4 col-sm-4 col-md-4" id="top-img-index">
-		      <%= link_to post_path(post),class: "col-12 col-sm-12 col-md-12", id: "post-index-img" do %>
+		      <a href="#" class="col-4 col-sm-4 col-md-4" id="post-index-img" data-toggle ="modal" data-target = "#Modal-<%= post.id %>">
 		        <%= image_tag post.post_image.to_s,class: "col-12 col-sm-12 col-md-12" %>
-		      <% end %>
+		      </a>
+		      <%= render 'posts/post_form', post: post %>
 			  </div>
 		  <% end %>
 		<% end %>
