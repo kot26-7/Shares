@@ -10,6 +10,9 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy
+  has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy
+  #validates users
   before_save { self.email = email.downcase }
   mount_uploader :profile_image, ProfileImageUploader
   validates :username, presence: true, length: { maximum: 50 }
@@ -54,5 +57,16 @@ class User < ApplicationRecord
   # Check already following?
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def create_notification_follow!(current_user)
+      temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+      if temp.blank?
+        notification = current_user.active_notifications.new(
+          visited_id: id,
+          action: 'follow'
+        )
+        notification.save if notification.valid?
+      end
   end
 end

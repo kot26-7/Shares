@@ -6,7 +6,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.post_id = post.id
     if @comment.save
-    	flash[:success] = "Commented Succsessfully"
+    	flash[:notice] = "Commented Succsessfully"
+      @post=@comment.post
+      @post.create_notification_comment!(current_user, @comment.id)
       redirect_back(fallback_location: root_path)
     else
     	flash[:alert] = "Comment Unsuccessfully"
