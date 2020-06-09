@@ -70,9 +70,10 @@
   </h1>
   <div class="row col-12 col-sm-12 col-md-12" id="post-index">
     <% @user.posts.each do |post| %>
-      <%= link_to post_path(post),class: "col-4 col-sm-4 col-md-4", id: "post-index-img" do %>
+      <a href="#" class="col-4 col-sm-4 col-md-4" id="post-index-img" data-toggle ="modal" data-target = "#Modal-<%= post.id %>">
         <%= image_tag post.post_image.to_s,class: "col-12 col-sm-12 col-md-12" %>
-      <% end %>
+      </a>
+      <%= render 'posts/post_form', post: post %>
     <% end %>
   </div>
 </div>

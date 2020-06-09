@@ -1,0 +1,41 @@
+<!-- modal -->
+<div class="modal fade" id="Modal-<%= post.id %>" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= @user.username %>'s post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="media row col-12 col-sm-9 col-md-9 shadow-lg p-3 mb-5 bg-white rounded" style="margin: 0 auto">
+          <%= image_tag @user.profile_image.to_s, class: "col-2 col-sm-2 col-md-2", id: "mar-pad-zero" %>
+          <div class="media-body col-10 col-sm-10 col-md-10">
+            <h5 style="padding-left: 10px ">
+              <%= post.user.username %>
+              <i class="far fa-heart" style="padding-left: 15px"></i>
+              <strong id="fav-counts"><%= post.favorites.count %></strong>
+            </h5>
+            <%= image_tag post.post_image.to_s, class: "col-12 col-sm-8 col-md-8", id: "post-show-img" %></br>
+
+            <div style="margin-top: 40px">
+              <h4 style="border-bottom: thin solid black">Comments</h4>
+              <ul class="list-unstyled">
+                <% post.comments.each do |c| %>
+                  <li class="media row" style="padding: 0 15px; margin-bottom: 10px">
+                    <%= image_tag post.user.profile_image.to_s, class: "col-2 col-sm-2 col-md-2", id: "mar-pad-zero" %>
+                    <div class="media-body col-10 col-sm-10 col-md-10" style="padding: 0 5px">
+                      <h5><%= c.user.username %></h5>
+                      <p style="padding-left: 5px"><%= c.content %></p>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
