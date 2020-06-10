@@ -3,7 +3,13 @@
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title"><%= post.user.username %>'s post</h5>
+        <% if post.title.nil? %>
+          <h5 class="modal-title"><%= post.user.username %>'s post</h5>
+        <% else %>
+          <h5 class="modal-title" style="font-family: Lucida Console, Monaco, monospace">
+            <%= post.title %>
+          </h5>
+        <% end %>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

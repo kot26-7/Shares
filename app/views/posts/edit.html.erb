@@ -13,6 +13,10 @@
 <div class="form-column col-12 col-sm-12 col-md-12">
   <%= form_for @post do |f| %>
     <div class="form-group">
+      <%= f.label :title, "Title" %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <div class="form-group">
       <%= f.label :post_image, "Image" %>
       <%= f.file_field :post_image, class: "form-control" %>
     </div>

@@ -47,4 +47,8 @@ class Post < ApplicationRecord
 	    end
 	    notification.save if notification.valid?
 	end
+  #method of search with ransack
+  def self.search(search)
+    Post.where(['title LIKE ?', "%#{search}%"])
+  end
 end

@@ -48,10 +48,12 @@
           </li>
         <% end %>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <div class="form-inline my-2 my-lg-0">
+        <%= search_form_for @search, url: posts_path do |f| %>
+          <%= f.text_field :title_cont ,placeholder: 'Search for posts', class: "form-control mr-sm-2" %>
+          <%= f.submit ("Search") ,class: "btn btn-secondary my-2 my-sm-0" %>
+        <% end %>
+      </div>
     </div>
   </nav>
 </header>

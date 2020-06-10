@@ -8,7 +8,8 @@
     <h5 style="padding-left: 10px ">
     	<%= @post.user.username %>
 			<i class="far fa-heart" style="padding-left: 15px"></i>
-			<strong id="fav-counts"><%= @post.favorites.count %></strong>
+			<strong id="fav-counts"><%= @post.favorites.count %></strong></br>
+      <h2 style="font-family: Lucida Console, Monaco, monospace"><%= @post.title %></h2>
     </h5>
     <%= image_tag @post.post_image.to_s, class: "col-12 col-sm-8 col-md-8", id: "post-show-img" %></br>
     <%= render 'posts/icons' %>
