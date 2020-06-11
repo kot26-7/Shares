@@ -1,11 +1,11 @@
 <% provide(:title, "Notifications") %>
 <div class="col-12 col-sm-12 col-md-12" style="margin: 0 auto">
-	<% if @notifications.exists? %>
-	  <div class="card">
-	      <%= render @notifications %>
-	  </div>
-	  <%= link_to "Delete", notification_path(@notifications), method: :delete ,class: "fas fa-trash", id: "notifi-delete" %>
-	<% else %>
-	    <p>No Notification</p>
-	<% end %>
+  <% if @notifications.exists? %>
+    <div class="card">
+        <%= render @notifications %>
+    </div>
+    <%= link_to "Delete", notification_path(@notifications), method: :delete ,class: "fas fa-trash", id: "notifi-delete" %>
+  <% else %>
+      <p>No Notification</p>
+  <% end %>
 </div>

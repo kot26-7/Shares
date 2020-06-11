@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :phonenumber, length: { maximum: 18}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	#validates :username, presence: true
+  #validates :username, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -60,13 +60,13 @@ class User < ApplicationRecord
   end
 
   def create_notification_follow!(current_user)
-      temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
-      if temp.blank?
-        notification = current_user.active_notifications.new(
-          visited_id: id,
-          action: 'follow'
-        )
-        notification.save if notification.valid?
-      end
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
   end
 end

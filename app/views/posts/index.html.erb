@@ -1,9 +1,7 @@
 <% provide(:title, "All Posts") %>
 
 <div class="col-12 col-sm-12 col-md-9" style="margin: 0px auto">
-  <h1 id="simple-heading" >
-    Posts
-  </h1>
+  <h1 id="simple-heading" >Posts</h1>
   <div class="row col-12 col-sm-12 col-md-12" id="post-index">
     <% @search_posts.each do |post| %>
       <%= link_to post_path(post),class: "col-4 col-sm-4 col-md-4", id: "post-index-img" do %>

@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :post_image, presence: true
-
+  validates :title, length: { maximum: 20 }
   #notifications of favorites
   def create_notification_favorite!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ",
@@ -28,25 +28,25 @@ class Post < ApplicationRecord
 
   #notifications of comments
   def create_notification_comment!(current_user, comment_id)
-	    temp_ids = Comment.where(post_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
-	    temp_ids.each do |temp_id|
-	      save_notification_comment!(current_user, comment_id, temp_id['user_id'])
-	    end
-	    save_notification_comment!(current_user, comment_id, user_id)
-	end
+    temp_ids = Comment.where(post_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
+    temp_ids.each do |temp_id|
+      save_notification_comment!(current_user, comment_id, temp_id['user_id'])
+    end
+    save_notification_comment!(current_user, comment_id, user_id)
+  end
 
-	def save_notification_comment!(current_user, comment_id, visited_id)
-	    notification = current_user.active_notifications.new(
-	      post_id: id,
-	      comment_id: comment_id,
-	      visited_id: visited_id,
-	      action: 'comment'
-	    )
-	    if notification.visitor_id == notification.visited_id
-	      notification.checked = true
-	    end
-	    notification.save if notification.valid?
-	end
+  def save_notification_comment!(current_user, comment_id, visited_id)
+      notification = current_user.active_notifications.new(
+        post_id: id,
+        comment_id: comment_id,
+        visited_id: visited_id,
+        action: 'comment'
+      )
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+  end
   #method of search with ransack
   def self.search(search)
     Post.where(['title LIKE ?', "%#{search}%"])

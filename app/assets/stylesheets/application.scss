@@ -15,8 +15,8 @@
 
 /* main */
 #mar-pad-zero{
-	margin:0;
-	padding:0;
+  margin:0;
+  padding:0;
 }
 
 a:hover{
@@ -24,95 +24,95 @@ a:hover{
 }
 
 body{
-	display: flex;
-	width:100%;
-	flex-flow: column;
-	min-height: 100vh;
+  display: flex;
+  width:100%;
+  flex-flow: column;
+  min-height: 100vh;
 }
 
 .flash-zone{
-	margin-block-end: auto;
+  margin-block-end: auto;
 }
 
 header{
-	width:100%;
+  width:100%;
   position:fixed;
   top:0;
   z-index:10;
 }
 
 .breadcrumb{
-	margin-top: 65px;
-	margin-bottom:0;
+  margin-top: 65px;
+  margin-bottom:0;
 }
 
 footer{
   margin-top:50px;
   width:100%;
   #photo-icon{
-	  display:flex;
-	  margin:0px auto;
-	  border:thin solid black;
-	  border-radius:30%;
-	  color:black;
-	  &:hover{
-	    background-color:beige;
-	  }
+    display:flex;
+    margin:0px auto;
+    border:thin solid black;
+    border-radius:30%;
+    color:black;
+    &:hover{
+      background-color:beige;
+    }
   }
 }
 
 #shares-title{
-	font-family: "Times New Roman", Times, serif;
-	font-size:26px;
+  font-family: "Times New Roman", Times, serif;
+  font-size:26px;
 }
 
 #main-container{
-	flex: 1;
+  flex: 1;
 }
 
 .form-column{
-	margin:0 auto;
-	width:500px;
+  margin:0 auto;
+  width:500px;
 }
 
 #submit-btn, #start-btn{
-	width:70%;
-	margin:0px auto;
-	display:block;
+  width:70%;
+  margin:0px auto;
+  display:block;
 }
 
 #start-btn{
-	margin-top:15px;
+  margin-top:15px;
 }
 
 .control{
-	position:relative;
-	.form-awesome{
-		padding-left:35px;
-	}
-	.icon{
-		position:absolute;
-		top:6px;
-		left:10px;
-	}
+  position:relative;
+  .form-awesome{
+    padding-left:35px;
+  }
+  .icon{
+    position:absolute;
+    top:6px;
+    left:10px;
+  }
 }
 
 #simple-heading{
-	font-size: 30px;
-	margin-bottom: 20px;
-	border-bottom: medium solid black;
+  font-size: 30px;
+  margin-bottom: 20px;
+  border-bottom: medium solid black;
 }
 
 /* css for facebook twitter login */
 
 .omni-btn{
-	float:left;
-	padding:3px 0px 0px 7px;
+  float:left;
+  padding:3px 0px 0px 7px;
 }
 
 .omni-msg{
-	padding:10px 0px;
-	margin:0;
+  padding:10px 0px;
+  margin:0;
 }
 
 /* user-edit-page */
@@ -127,18 +127,18 @@ footer{
 }
 
 .form-check{
-	position:relative;
-	height:50px;
-	p{
-		font-size:15px;
-		position:absolute;
-		left:10px;
-	}
-	.form-check-input{
-		position:absolute;
-		top:20px;
-		left:40px;
-	}
+  position:relative;
+  height:50px;
+  p{
+    font-size:15px;
+    position:absolute;
+    left:10px;
+  }
+  .form-check-input{
+    position:absolute;
+    top:20px;
+    left:40px;
+  }
 }
 
 .danger-msg{
@@ -150,51 +150,51 @@ footer{
 
 /* user-show-page */
 .sub-title{
-	line-height:41px;
+  line-height:41px;
 }
 
 #user-status{
-	margin-left: 5px;
-	display:inline-block;
+  margin-left: 5px;
+  display:inline-block;
 }
 
 /* user-index */
 #index-uname{
-	color:black;
-	margin-left:10px;
+  color:black;
+  margin-left:10px;
 }
 #index-psts{
-	margin: 0px 0px 10px 10px;
+  margin: 0px 0px 10px 10px;
 }
 
 /* post-show-page */
 #post-show-img{
-	margin:10px 0px;
+  margin:10px 0px;
 }
 
 #post-index{
-	display:flex;
+  display:flex;
   flex-wrap: wrap;
   #post-index-img{
-		vertical-align: middle;
-		margin-bottom: 10px;
-	}
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
 }
 
 /* post-icon */
 .post-icons{
-	margin-left:30px;
+  margin-left:30px;
 }
 
 /* home-top-page */
 #top-img-index{
-	padding:0;
-	margin:0px 0px 10px 0px;
+  padding:0;
+  margin:0px 0px 10px 0px;
 }
 
 /* notifications-page */
 #notifi-delete{
-	float:right;
-	color:red;
-	padding:10px 10px 0px 0px;
+  float:right;
+  color:red;
+  padding:10px 10px 0px 0px;
 }
