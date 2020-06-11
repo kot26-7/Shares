@@ -49,6 +49,16 @@ header{
 footer{
   margin-top:50px;
   width:100%;
+  #photo-icon{
+	  display:flex;
+	  margin:0px auto;
+	  border:thin solid black;
+	  border-radius:30%;
+	  color:black;
+	  &:hover{
+	    background-color:beige;
+	  }
+  }
 }
 
 #shares-title{
@@ -65,10 +75,14 @@ footer{
 	width:500px;
 }
 
-#submit-btn{
+#submit-btn, #start-btn{
 	width:70%;
 	margin:0px auto;
 	display:block;
+}
+
+#start-btn{
+	margin-top:15px;
 }
 
 .control{
@@ -82,6 +96,14 @@ footer{
 		left:10px;
 	}
 }
+
+#simple-heading{
+	font-size: 30px;
+	margin-bottom: 20px;
+	border-bottom: medium solid black;
+}
+
+/* css for facebook twitter login */
 
 .omni-btn{
 	float:left;
@@ -126,12 +148,17 @@ footer{
   }
 }
 
-/* user-index */
-
+/* user-show-page */
 .sub-title{
 	line-height:41px;
 }
 
+#user-status{
+	margin-left: 5px;
+	display:inline-block;
+}
+
+/* user-index */
 #index-uname{
 	color:black;
 	margin-left:10px;
@@ -140,17 +167,7 @@ footer{
 	margin: 0px 0px 10px 10px;
 }
 
-#photo-icon{
-  display:flex;
-  margin:0px auto;
-  border:thin solid black;
-  border-radius:30%;
-  color:black;
-  &:hover{
-    background-color:beige;
-  }
-}
-
+/* post-show-page */
 #post-show-img{
 	margin:10px 0px;
 }
@@ -158,31 +175,24 @@ footer{
 #post-index{
 	display:flex;
   flex-wrap: wrap;
+  #post-index-img{
+		vertical-align: middle;
+		margin-bottom: 10px;
+	}
 }
 
-#post-index-img{
-	vertical-align: middle;
-	margin-bottom: 10px;
-}
-
+/* post-icon */
 .post-icons{
 	margin-left:30px;
 }
 
-#pst-img-index{
-	width:33%;
-}
-
-#user-status{
-	margin-left: 5px;
-	display:inline-block;
-}
-
+/* home-top-page */
 #top-img-index{
 	padding:0;
 	margin:0px 0px 10px 0px;
 }
 
+/* notifications-page */
 #notifi-delete{
 	float:right;
 	color:red;

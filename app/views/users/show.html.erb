@@ -2,7 +2,7 @@
 
 <div class="col-12 col-sm-9 col-md-9" style="margin: 0 auto">
   <div class="prof-img-name">
-    <figure class="rounded float-left"  style="margin-left: auto; margin-right: auto;">
+    <figure class="float-left"  style="margin-left: auto; margin-right: auto;">
     	<%= image_tag @user.profile_image.to_s, class: "prof-img" %>
     </figure>
     <div id="user-status">
@@ -15,30 +15,26 @@
     <table class="table is-fullwidth">
       <tr>
         <% if @user.id == current_user.id %>
-        <td class="is-size-4">
-          <%= @user.email %>
-          <% @user ||= current_user %>
-        </td>
-        <td>
+          <td class="is-size-4">
+            <%= @user.email %>
+            <% @user ||= current_user %>
+          </td>
+          <td>
             <%= link_to "Edit", edit_user_path(@user), class: "button is-primary" %>
-        </td>
+          </td>
         <% end %>
       </tr>
     </table>
     <table class="table is-fullwidth">
       <tr>
-        <td>
-          <%= @user.introduce %>
-        </td>
+        <td><%= @user.introduce %></td>
       </tr>
     </table>
   </div>
 
 
   <div style="margin: 0px auto">
-    <h1 style="font-size: 30px; margin-bottom: 20px; border-bottom: medium solid black">
-      Additional Profile
-    </h1>
+    <h1 id="simple-heading">Additional Profile</h1>
 
     <div class="row row-cols-2" style="margin-bottom: 15px">
       <h3 class="col-4 font-weight-normal">Fullname:</h3>
@@ -63,11 +59,8 @@
     <% end %>
   </div>
 </div>
-
 <div class="col-12 col-sm-9 col-md-9" style="margin: 0px auto">
-  <h1 style="font-size: 30px; margin-bottom: 20px; border-bottom: medium solid black">
-    Posts : <%= @user.posts.count %>
-  </h1>
+  <h1 id="simple-heading">Posts : <%= @user.posts.count %></h1>
   <div class="row col-12 col-sm-12 col-md-12" id="post-index">
     <% @user.posts.each do |post| %>
       <a href="#" class="col-4 col-sm-4 col-md-4" id="post-index-img" data-toggle ="modal" data-target = "#Modal-<%= post.id %>">

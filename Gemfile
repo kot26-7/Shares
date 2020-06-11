@@ -42,8 +42,6 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem 'bootstrap'
 gem 'jquery-rails'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
 gem 'ransack'
 
 # Reduces boot times through caching; required in config/boot.rb

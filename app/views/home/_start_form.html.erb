@@ -1,20 +1,20 @@
-<div class="col-12 col-sm-8 col-md-6" style="margin: 20px auto">
-  <div class="shadow p-3 bg-white rounded">
+<div class="col-12 col-sm-10 col-md-6" style="margin: 20px auto">
+  <div class="shadow p-3 rounded" style="background-color: cornsilk">
   	<h1 class="title is-2" style="text-align: center">Let's start!</h1>
   	<%= link_to new_user_session_path do %>
-			<div class="btn btn-success", id="submit-btn" style="margin-top: 15px">
+			<div class="btn btn-success", id="start-btn">
 				<p style="margin: 0">Login Here</p>
 			</div>
 		<% end %>
 
   	<%= link_to new_user_registration_path do %>
-			<div class="btn btn-primary", id="submit-btn" style="margin-top: 15px">
+			<div class="btn btn-primary", id="start-btn">
 				<p  style="margin: 0">Sign up Here</p>
 			</div>
 		<% end %>
 
 	  <%= link_to user_facebook_omniauth_authorize_path do %>
-	    <div class="btn btn-info" id="submit-btn" style="margin-top: 15px">
+	    <div class="btn btn-info" id="start-btn">
 	      <span class="omni-btn">
 	        <i class="fab fa-facebook fa-2x"></i>
 	      </span>
@@ -23,7 +23,7 @@
 	  <% end %>
 
 		<%= link_to user_twitter_omniauth_authorize_path do %>
-	    <div class="btn btn-primary" id="submit-btn" style="margin-top: 15px">
+	    <div class="btn btn-primary" id="start-btn">
 	      <span class="omni-btn">
 	        <i class="fab fa-twitter fa-2x"></i>
 	      </span>

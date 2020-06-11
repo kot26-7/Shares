@@ -1,6 +1,6 @@
 <% provide(:title, "Signup") %>
 
-<div class="form-column  col-12 col-sm-12 col-md-12">
+<div class="form-column col-12 col-sm-12 col-md-12">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -58,13 +58,10 @@
         </span>
       </div>
     </div>
-    <div>
-      <p style="text-align: center">Before Signup, Please check</p>
-      <p style="text-align: center;padding-bottom: 10px">
-        <%= link_to "Terms of service" ,terms_path %>
-      </p>
-    </div>
-    
+    <p style="text-align: center">Before Signup, Please check</p>
+    <p style="text-align: center;padding-bottom: 10px">
+      <%= link_to "Terms of service" ,terms_path %>
+    </p>
     <%= f.submit "Sign up", class: "btn btn-primary", id: "submit-btn" %>
   <% end %>
   <p style="text-align:center; margin:5px 0">or</p>

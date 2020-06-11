@@ -1,59 +1,11 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: aquamarine">
-    <%= link_to "Shares", root_path , class: "navbar-brand" ,id: "shares-title" %>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <%= link_to "Shares", root_path, class: "navbar-brand" ,id: "shares-title" %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to "Home", root_path , class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Users", users_path , class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Posts", posts_path , class: "nav-link" %>
-        </li>
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "New", new_post_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Logout", destroy_user_session_path,method: :delete, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to notifications_path do %>
-              <% if unchecked_notifications.any? %>
-                <h4>
-                <i class="fas fa-bell" style="padding: 0.5rem; color: orange"></i>
-                </h4>
-              <% else %>
-                <h4>
-                  <i class="fas fa-bell" style="padding: 0.5rem; color: white"></i>
-                </h4>
-              <% end %>
-            <% end %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Signup", new_user_registration_path,class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-      <div class="form-inline my-2 my-lg-0">
-        <%= search_form_for @search, url: posts_path do |f| %>
-          <%= f.text_field :title_cont ,placeholder: 'Search for posts', class: "form-control mr-sm-2" %>
-          <%= f.submit ("Search") ,class: "btn btn-secondary my-2 my-sm-0" %>
-        <% end %>
-      </div>
+      <%= render 'layouts/header_contents' %>
     </div>
   </nav>
 </header>
