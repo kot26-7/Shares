@@ -9,4 +9,11 @@ RSpec.describe "Homes", type: :request do
     end
   end
 
+  describe "GET /terms" do
+    it "returns http success" do
+      get terms_path
+      expect(response).to have_http_status(:success)
+    end
+  end
+
 end
