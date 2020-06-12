@@ -32,11 +32,11 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
-      user.name = auth.name
+      user.username = auth.username
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
-      user.image = auth.info.image.gsub("_normal","") if user.provider == "twitter"
-      user.image = auth.info.image.gsub("picture","picture?type=large") if user.provider == "facebook"
+      user.profile_image = auth.info.image.gsub("_normal","") if user.provider == "twitter"
+      user.profile_image = auth.info.image.gsub("picture","picture?type=large") if user.provider == "facebook"
     end
   end
 
