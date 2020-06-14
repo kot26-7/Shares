@@ -18,8 +18,8 @@
       <ul class="list-unstyled">
         <% @comments.each do |c| %>
           <li class="media row" style="padding: 0 15px; margin-bottom: 10px">
-            <%= link_to user_path(@post.user), class: "col-2 col-sm-2 col-md-1", id: "mar-pad-zero" do %>
-              <%= image_tag @post.user.profile_image.to_s, class: "col-12 col-sm-12 col-md-12", id: "mar-pad-zero" %>
+            <%= link_to user_path(c.user), class: "col-2 col-sm-2 col-md-1", id: "mar-pad-zero" do %>
+              <%= image_tag c.user.profile_image.to_s, class: "col-12 col-sm-12 col-md-12", id: "mar-pad-zero" %>
             <% end %>
             <div class="media-body col-10 col-sm-10 col-md-11" style="padding: 0 5px; word-break: break-word;">
               <h5><%= link_to c.user.username, user_path(c.user) %></h5>
