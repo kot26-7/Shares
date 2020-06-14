@@ -4,7 +4,6 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :notifications, dependent: :destroy
   mount_uploader :post_image, PostImageUploader
-  default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :post_image, presence: true
   validates :title, length: { maximum: 50 }
