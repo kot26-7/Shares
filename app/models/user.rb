@@ -29,20 +29,32 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
 
-  def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
+  def self.find_for_facebook_oauth(provider, uid, name, email, signed_in_resource=nil)
+  user = User.where(:provider => provider, :uid => uid).first
+  unless user
+    user = User.create(:username => name,
+                     :fullname => name,
+                     :provider => provider,
+                     :uid => uid,
+                     :email => email,
+                     :password => Devise.friendly_token[0,20]
+                     )
+  end
+    return user
+  end
 
-    unless user
-      user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        username: auth.name,
-        fullname: auth.name,
-        email:    auth.info.email,
-        password: Devise.friendly_token[0, 20]
-      )
-    end
-    user
+  def self.find_for_twitter_oauth(provider, uid, name, email, signed_in_resource=nil)
+  user = User.where(:provider => provider, :uid => uid).first
+  unless user
+    user = User.create(:username => name,
+                     :fullname => name,
+                     :provider => provider,
+                     :uid => uid,
+                     :email => email,
+                     :password => Devise.friendly_token[0,20]
+                     )
+  end
+    return user
   end
 
   def already_fav?(post)
