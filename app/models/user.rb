@@ -15,7 +15,8 @@ class User < ApplicationRecord
   #validates users
   before_save { self.email = email.downcase }
   mount_uploader :profile_image, ProfileImageUploader
-  validates :username, presence: true, length: { maximum: 50 }
+  VALID_NAME =  /\A[a-zA-Z0-9_]+\z/
+  validates :username, presence: true, length: { maximum: 50 }, format: { with: VALID_NAME }
   validates :fullname, presence: true, length: { maximum: 50 }
   validates :introduce, length: { maximum: 500}
   validates :phonenumber, length: { maximum: 18}
@@ -28,16 +29,20 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:twitter, :facebook]
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.username = auth.username
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
-      user.profile_image = auth.info.image.gsub("_normal","") if user.provider == "twitter"
-      user.profile_image = auth.info.image.gsub("picture","picture?type=large") if user.provider == "facebook"
+  def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        username: auth.name,
+        fullname: auth.name,
+        email:    auth.info.email,
+        password: Devise.friendly_token[0, 20]
+      )
     end
+    user
   end
 
   def already_fav?(post)
