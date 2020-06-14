@@ -1,0 +1,21 @@
+<% provide(:title, "Users") %>
+
+<div class="row col-12 col-sm-12 col-md-12">
+  <% @users.each do |user| %>
+    <div class="card row col-5 col-sm-3 col-md-3" id="mar-pad-zero" style="margin-right: 5px">
+      <figure class="card-img-top">
+        <%= link_to user_path(user) do %>
+          <%= image_tag user.profile_image.to_s, class: "col-12 col-sm-12 col-md-12",id: "mar-pad-zero" %>
+        <% end %>
+      </figure>
+      <div class="card-content">
+        <div class="card-title">
+          <%=link_to user.username, user_path(user), id: "index-uname" %>
+        </div>
+        <div class="card-text" id="index-psts">
+          Posts : <%= user.posts.count %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<!-- this id is for ajax, dont delete it -->
+<div class="post-icons" id="icons">
+  <% if @post.user.id != current_user.id %>
+    <% if current_user.already_fav?(@post) %>
+      <%= render 'posts/unfavorite' %>
+    <% else %>
+      <%= render 'posts/favorite' %>
+    <% end %>
+  <% else %>
+    <%= link_to edit_post_path(@post) do %>
+      <i class="fas fa-edit" style="color: green"></i>
+    <% end %>
+    <%= link_to post_path(@post),method: :delete,data: { confirm: "Delete this post?" } do %>
+      <i class="fas fa-trash-alt" style="color: crimson"></i>
+    <% end %>
+  <% end %>
+</div>

@@ -1,24 +1,62 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+多いので文章ではなく、列挙になりますがご了承ください。
 
-Things you may want to cover:
+未実装機能について
 
-* Ruby version
+・omniauth使用によるfacebookログイン<br>
+　(そのかわりにtwitterログインを実装　=>　動作確認OK)<br>
 
-* System dependencies
+自分が苦労した点
 
-* Configuration
+・omniauthのシステムの理解と活用<br>
+　　(これに関してはまだ曖昧としているので、今後より理解を深めていきたい)<br>
+・ajax,javascript,jquery等を使用した非同期処理<br>
+・フィードを使用しないTOPページの表示(フォロワーの投稿)<br>
+・bootstrapによるモーダル作成<br>
+・herokuにデプロイする際のセットアップ<br>
+　　(ストレージの変更やselect-distinct-errorの対応)<br>
 
-* Database creation
+学んだ点
 
-* Database initialization
+・基本的なユーザー、投稿のアプリ作成<br>
+　　(ここまでは10回程繰り返したので、すぐに作成できるようになった。)<br>
+・Rspec<br>
+　　(これからRspecが必要とのことで、練習がてらほんの少しだけ書きましたが<br>
+　　予想以上に難しかったので、これから勉強していく)<br>
+・bulma-rails や bootstrap などのフレームワークの使用方法<br>
+　　(以前はbulma-railsで作成していましたが、モーダル作成が難しく、bootstrap<br>
+　　の方が簡単だったので変更しました)<br>
+・ajaxの非同期処理<br>
+・無駄なコミットをしない<br>
+　　(本番環境だけでしか再現されないエラーもあったため、コミットするしかない箇所もありましたが<br>
+　　差分などをよく確認してからgitコマンドを使うようにする)<br>
+・予習と復習は大事<br>
+　　(ある一つの機能を実装する際は、予め流れを確認しておく、公式のgithub等は必読、<br>
+　　実装後は自分のコードを見てどうなっているのか再度理解する)<br>
+・レイアウトに困ったときはgoogle chrome inspector<br>
 
-* How to run the test suite
+このアプリについて
 
-* Services (job queues, cache servers, search engines, etc.)
+・全体的にレスポンシブとなっており、iphoneでも使用できます。(動作確認ずみ)<br>
+・facebookでのログインが実装できていません<br>
+　　(WEb等のQ＆Aを参考にしましたが、一向に解決しないので後回しに)<br>
+　　※twitterの方は成功しているのでおそらくdeveloper側の問題<br>
+・投稿のタイトルでの検索機能実装<br>
+　　(ですが、投稿のタイトルは任意にしてあるため、検索の対象外にすることもできます)<br>
+・いいねとフォロー機能は非同期処理を行なっています	<br>
+・大量の投稿、ユーザー数を想定していないので、ページネーション機能は搭載してありません<br>
+・本来のdevise-registrations-editのページをパスワード変更のためだけのページに変換<br>
+　　それに伴いフラッシュメッセージも書き換えました<br>
+　　(今回はコントローラーに直接書き換えましたが、どうやらconfig-locales-devise.en.yml<br>
+　　を書き換えるだけでよかった気がします、最後に気付きました)<br>
 
-* Deployment instructions
+相談したい点
 
-* ...
+・scssファイルへの書き込みとhtmlのstyleタグについて<br>
+　今回、たくさん書かなければならないcssなどについてはapplication.scssの方に<br>
+　書いて、簡潔なものはhtmlに直接styleタグで書くと方法を取りました。<br>
+　　ですが、これは人にとっては見にくい可能性もあります。<br>
+　おそらくは、企業に努めた際にそのような決まり事は統一するとは思うのですが。<br>
+　メンターの方々はどのように書かれていらしゃるのでしょうか？<br>
+　教えていただけると幸いです。<br>

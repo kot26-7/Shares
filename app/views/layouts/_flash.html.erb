@@ -1,0 +1,10 @@
+<div class="flash-zone">
+  <% flash.each do |key, value| %>
+    <% if flash[:notice] %>
+      <%= content_tag(:div, value, class: "notice alert alert-success") %>
+    <% end %>
+    <% if flash[:alert] %>
+      <%= content_tag(:div, value, class: "alert alert-danger") %>
+    <% end %>
+  <% end %>
+</div>

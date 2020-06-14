@@ -1,0 +1,5 @@
+<div class="col-12 col-sm-12 col-md-12 list-group list-group-flush" style="margin: 0 auto">
+  <li class="list-group-item">
+    <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)} before)" %></span>
+  </li>
+</div>

@@ -1,0 +1,202 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "bootstrap";
+
+/* main */
+#mar-pad-zero{
+  margin:0;
+  padding:0;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+body{
+  display: flex;
+  width:100%;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.flash-zone{
+  margin-block-end: auto;
+}
+
+header{
+  width:100%;
+  position:fixed;
+  top:0;
+  z-index:10;
+}
+
+.breadcrumb{
+  margin-top: 65px;
+  margin-bottom:0;
+}
+
+footer{
+  margin-top:50px;
+  width:100%;
+  #photo-icon{
+    display:flex;
+    margin:0px auto;
+    border:thin solid black;
+    border-radius:30%;
+    color:black;
+    &:hover{
+      background-color:beige;
+    }
+  }
+}
+
+#shares-title{
+  font-family: "Times New Roman", Times, serif;
+  font-size:26px;
+}
+
+#main-container{
+  flex: 1;
+}
+
+.form-column{
+  margin:0 auto;
+  width:500px;
+}
+
+#submit-btn, #start-btn{
+  width:70%;
+  margin:0px auto;
+  display:block;
+}
+
+#start-btn{
+  margin-top:15px;
+}
+
+.control{
+  position:relative;
+  .form-awesome{
+    padding-left:35px;
+  }
+  .icon{
+    position:absolute;
+    top:6px;
+    left:10px;
+  }
+}
+
+#simple-heading{
+  font-size: 30px;
+  margin-bottom: 20px;
+  border-bottom: medium solid black;
+}
+
+/* css for facebook twitter login */
+
+.omni-btn{
+  float:left;
+  padding:3px 0px 0px 7px;
+}
+
+.omni-msg{
+  padding:10px 0px;
+  margin:0;
+}
+
+/* user-edit-page */
+.edit-field{
+  border-bottom:thin solid black;
+  margin-bottom:20px;
+  padding-top:20px;
+  .edit-title{
+    font-size:25px;
+    font-weight:bold;
+  }
+}
+
+.form-check{
+  position:relative;
+  height:50px;
+  p{
+    font-size:15px;
+    position:absolute;
+    left:10px;
+  }
+  .form-check-input{
+    position:absolute;
+    top:20px;
+    left:40px;
+  }
+}
+
+.danger-msg{
+  color:red;
+  &:hover{
+    color:black;
+  }
+}
+
+/* user-show-page */
+.sub-title{
+  line-height:41px;
+  padding-left:20px;
+}
+
+#user-status{
+  margin-left: 5px;
+  display:inline-block;
+}
+
+/* user-index */
+#index-uname{
+  color:black;
+  margin-left:10px;
+}
+#index-psts{
+  margin: 0px 0px 10px 10px;
+}
+
+/* post-show-page */
+#post-show-img{
+  margin:10px 0px;
+}
+
+#post-index{
+  display:flex;
+  flex-wrap: wrap;
+  #post-index-img{
+    vertical-align: middle;
+    padding:0px 5px;
+    margin-bottom: 10px;
+  }
+}
+
+/* post-icon */
+.post-icons{
+  margin-left:30px;
+}
+
+/* home-top-page */
+#top-img-index{
+  padding:0px 5px;
+  margin:0px 0px 10px 0px;
+}
+
+/* notifications-page */
+#notifi-delete{
+  float:right;
+  color:red;
+  padding:10px 10px 0px 0px;
+}

@@ -1,0 +1,2 @@
+$("#icons").html("<%= escape_javascript(render('posts/favorite')) %>");
+$("#fav-counts").html('<%= @post.favorites.count %>');

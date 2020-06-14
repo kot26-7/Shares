@@ -1,0 +1,84 @@
+<% provide(:title, "Edit Profile") %>
+
+<% if @user.errors.any? %>
+  <div class="alert alert-danger col-12 col-sm-12 col-md-12">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul> 
+  </div>
+<% end %>
+
+<div class="form-column  col-12 col-sm-12 col-md-12">
+  <%= form_for @user do |f| %>
+    <div class="form-group">
+      <%= f.label :username, "Username", class: "font-weight-bold" %>
+      <span class="badge badge-danger">Required</span>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email, "Email", class: "font-weight-bold" %>
+      <span class="badge badge-danger">Required</span>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :fullname, "Fullname", class: "font-weight-bold" %>
+      <%= f.text_field :fullname, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :website, "Website", class: "font-weight-bold" %>
+      <%= f.text_field :website, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :phonenumber, "Phonenumber", class: "font-weight-bold" %>
+      <%= f.text_field :phonenumber, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <h6 class="font-weight-bold">Gender</h6>
+      <div style="display: flex;">
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "Male", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "male", class: 'form-check-input' %>
+        </div>
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "Female", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "female", class: 'form-check-input' %>
+        </div>
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "Other", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "other", class: 'form-check-input' %>
+        </div>
+        <div class="form-check col-3 col-sm-3 col-md-3">
+          <p><%= f.label :gender, "No answer", class: 'form-check-label' %></p>
+          <%= f.radio_button :gender, "", class: 'form-check-input' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :introduce, "Introduce", class: "font-weight-bold" %>
+      <%= f.text_area :introduce, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :profile_image, "Profile Image", class: "font-weight-bold" %>
+      <%= f.file_field :profile_image, class: "form-control" %>
+    </div></br>
+
+    <%= f.submit "Update", class: "btn btn-primary", id: "submit-btn" %>
+  <% end %>
+</div>
+
+<div class="form-column col-12 col-sm-12 col-md-12" style="padding-top: 60px">
+  <%= link_to "Change your password", edit_user_registration_path %></br>
+  <% if @user.id == current_user.id %>
+    <%= link_to "Delete account", @user, method: :delete, data: { confirm: "You sure?" }, class: "danger-msg" %>
+  <% end %>
+</div>
