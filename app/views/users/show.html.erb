@@ -27,7 +27,7 @@
     </table>
     <table class="table is-fullwidth">
       <tr>
-        <td><%= @user.introduce %></td>
+        <td><%= simple_format(@user.introduce, sanitize: true) %></td>
       </tr>
     </table>
   </div>
@@ -48,7 +48,7 @@
 
     <% if @user.id == current_user.id %>
       <div class="row row-cols-2" style="margin-bottom: 15px">
-        <h3 class="col-4 font-weight-normal">Phonenumber:</h3>
+        <h3 class="col-4 font-weight-normal">Phone:</h3>
         <h5 class="font-weight-light col-8 sub-title"><%= @user.phonenumber %></h5>
       </div>
 
@@ -61,10 +61,10 @@
 </div>
 <div class="col-12 col-sm-9 col-md-9" style="margin: 0px auto">
   <h1 id="simple-heading">Posts : <%= @user.posts.count %></h1>
-  <div class="row col-12 col-sm-12 col-md-12" id="post-index">
+  <div class="row col-12 col-sm-12 col-md-12" id="post-index" style="padding-right: 0">
     <% @user.posts.each do |post| %>
       <a href="#" class="col-4 col-sm-4 col-md-4" id="post-index-img" data-toggle ="modal" data-target = "#Modal-<%= post.id %>">
-        <%= image_tag post.post_image.to_s,class: "col-12 col-sm-12 col-md-12" %>
+        <%= image_tag post.post_image.to_s,class: "col-12 col-sm-12 col-md-12", id: "mar-pad-zero" %>
       </a>
       <%= render 'posts/post_form', post: post %>
     <% end %>

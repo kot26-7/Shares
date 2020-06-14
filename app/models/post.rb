@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :post_image, presence: true
-  validates :title, length: { maximum: 20 }
+  validates :title, length: { maximum: 50 }
   #notifications of favorites
   def create_notification_favorite!(current_user)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ",

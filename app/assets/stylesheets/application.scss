@@ -151,6 +151,7 @@ footer{
 /* user-show-page */
 .sub-title{
   line-height:41px;
+  padding-left:20px;
 }
 
 #user-status{
@@ -177,6 +178,7 @@ footer{
   flex-wrap: wrap;
   #post-index-img{
     vertical-align: middle;
+    padding:0px 5px;
     margin-bottom: 10px;
   }
 }
@@ -188,7 +190,7 @@ footer{
 
 /* home-top-page */
 #top-img-index{
-  padding:0;
+  padding:0px 5px;
   margin:0px 0px 10px 0px;
 }
 
